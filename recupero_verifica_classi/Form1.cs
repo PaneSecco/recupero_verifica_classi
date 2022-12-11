@@ -172,5 +172,31 @@ namespace recupero_verifica_classi
             button2.Enabled = false;
             button4.Enabled = false;
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (listView1.Items.Count==0)
+            {
+
+            }
+            else
+            {
+                annuncio[] annunci = el.stampa();
+                int volte=annunci.Length;
+                float somma=0;
+
+                for ( int i = 0; i < annunci.Length; i++)
+                {
+                    somma += annunci[i].Costo;
+                }
+
+                label5.Text = Convert.ToString(somma);
+            }
+        }
     }
 }
