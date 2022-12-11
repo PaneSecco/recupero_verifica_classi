@@ -199,5 +199,40 @@ namespace recupero_verifica_classi
                 label5.Text = Convert.ToString(somma);
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            annuncio[] annunci = el.stampa();
+
+            annuncio temp;
+            for(int i = 0; i < annunci.Length-1; i++)
+            {
+                for (int j = 0; j < annunci.Length - 1; j++)
+                {
+                    if (annunci[i].Costo> annunci[j].Costo)
+                    {
+                        temp = annunci[i];
+                        annunci[i] = annunci[j];
+                        annunci[j] = temp;
+                    }
+                }
+            }
+
+            listView1.Clear();
+            string[] intestazione = new string[] { "ID", "Testo", "Data", "Costo" };
+
+            for (int i = 0; i < intestazione.Length; i++)
+            {
+                listView1.Columns.Add(intestazione[i]);
+            }
+            for (int i = 0; i < annunci.Length; i++)
+            {
+                ListViewItem u = new ListViewItem(annunci[i].ID);
+                u.SubItems.Add(annunci[i].Testo);
+                u.SubItems.Add(annunci[i].Data);
+                u.SubItems.Add(Convert.ToString(annunci[i].Costo));
+                listView1.Items.Add(u);
+            }
+        }
     }
 }
