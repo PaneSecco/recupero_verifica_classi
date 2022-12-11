@@ -48,12 +48,22 @@ namespace recupero_verifica_classi
 
         public void riordina(int id_inizio)
         {
-            for (int i = id_inizio; i < posizioni; i++)
+            if (posizioni== 1)
             {
-                elenco[id_inizio].ID = elenco[id_inizio + 1].ID;
-                elenco[id_inizio].Testo = elenco[id_inizio + 1].Testo;
-                elenco[id_inizio].Data = elenco[id_inizio + 1].Data;
-                elenco[id_inizio].Costo = elenco[id_inizio + 1].Costo;
+                elenco[0].ID = null;
+                elenco[0].Testo = null;
+                elenco[0].Data = null;
+                elenco[0].Costo = -1;
+            }
+            else
+            {
+                for (int i = id_inizio; i < posizioni; i++)
+                {
+                    elenco[id_inizio].ID = elenco[id_inizio + 1].ID;
+                    elenco[id_inizio].Testo = elenco[id_inizio + 1].Testo;
+                    elenco[id_inizio].Data = elenco[id_inizio + 1].Data;
+                    elenco[id_inizio].Costo = elenco[id_inizio + 1].Costo;
+                }
             }
 
             posizioni--;

@@ -167,6 +167,7 @@ namespace recupero_verifica_classi
             textBox1.Text = null;
             textBox2.Text = null;
             textBox3.Text = null;
+            textBox4.Text = null;
 
             button1.Enabled = true;
             button2.Enabled = false;

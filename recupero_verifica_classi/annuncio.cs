@@ -51,7 +51,7 @@ namespace recupero_verifica_classi
 
         public void elimina()
         {
-            this.id = "annuncio cancellato";
+            this.id = null;
             this.testo = null;
             this.data = null;
             this.costo = -1;
