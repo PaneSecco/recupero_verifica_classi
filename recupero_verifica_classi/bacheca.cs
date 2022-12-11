@@ -48,7 +48,7 @@ namespace recupero_verifica_classi
 
         public void riordina(int id_inizio)
         {
-            for (int i = id_inizio; i <= posizioni; i++)
+            for (int i = id_inizio; i < posizioni; i++)
             {
                 elenco[id_inizio].ID = elenco[id_inizio + 1].ID;
                 elenco[id_inizio].Testo = elenco[id_inizio + 1].Testo;
