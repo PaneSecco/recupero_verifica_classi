@@ -42,5 +42,19 @@ namespace recupero_verifica_classi
             get { return costo; }
             set { costo = value; }
         }
+        public void modifica(string testo, string data, float costo)
+        {
+            this.testo = testo;
+            this.data = data;
+            this.costo = costo;
+        }
+
+        public void elimina()
+        {
+            this.id = "annuncio cancellato";
+            this.testo = null;
+            this.data = null;
+            this.costo = -1;
+        }
     }
 }

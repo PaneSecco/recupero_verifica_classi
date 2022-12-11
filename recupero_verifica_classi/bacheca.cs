@@ -10,6 +10,7 @@ namespace recupero_verifica_classi
     {
         private annuncio[] elenco = new annuncio[999];
         private int contatore = 0;
+        private int posizioni = 0;
 
         public bacheca()
         {
@@ -23,25 +24,39 @@ namespace recupero_verifica_classi
 
         public void aggiungi(string testo, string data, float costo)
         {
-            string id = "ann" + contatore;
-            elenco[contatore] = new annuncio(id, testo, data, costo);
+            string id ="ann"+contatore;
+            elenco[posizioni] = new annuncio(id, testo, data, costo);
             contatore++;
+            posizioni++;
         }
 
         public int get_contatore()
         {
-            return contatore;
+            return posizioni;
         }
 
         public annuncio[] stampa()
         {
-            annuncio[] a = new annuncio[contatore];
+            annuncio[] a = new annuncio[posizioni];
 
-            for (int i = 0; i < contatore; i++)
+            for (int i = 0; i < posizioni; i++)
             {
                 a[i] = elenco[i];
             }
             return a;
+        }
+
+        public void riordina(int id_inizio)
+        {
+            for (int i = id_inizio; i <= posizioni; i++)
+            {
+                elenco[id_inizio].ID = elenco[id_inizio + 1].ID;
+                elenco[id_inizio].Testo = elenco[id_inizio + 1].Testo;
+                elenco[id_inizio].Data = elenco[id_inizio + 1].Data;
+                elenco[id_inizio].Costo = elenco[id_inizio + 1].Costo;
+            }
+
+            posizioni--;
         }
     }
 }
