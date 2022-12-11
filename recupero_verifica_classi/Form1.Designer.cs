@@ -58,6 +58,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // ID
             // 
@@ -136,7 +137,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(937, 284);
+            this.textBox4.Location = new System.Drawing.Point(923, 259);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(211, 101);

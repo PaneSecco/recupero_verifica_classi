@@ -35,9 +35,9 @@ namespace recupero_verifica_classi
 
         public annuncio[] stampa()
         {
-            annuncio[] a = new annuncio[contatore-1];
+            annuncio[] a = new annuncio[contatore];
 
-            for (int i = 0; i < contatore-1; i++)
+            for (int i = 0; i < contatore; i++)
             {
                 a[i] = elenco[i];
             }

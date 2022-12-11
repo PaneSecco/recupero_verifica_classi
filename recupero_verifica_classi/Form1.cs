@@ -31,31 +31,42 @@ namespace recupero_verifica_classi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            el.aggiungi(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text));
-            textBox1.Text = null;
-            textBox2.Text = null;
-            textBox3.Text = null;
-            textBox1.Focus();
+            if (textBox1.Text == null || textBox2.Text == null || textBox3.Text == null)
+            {
+                throw new Exception("uno dei valori richiesti non è stato inserito");
+            }
+            else
+            {
+                el.aggiungi(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text));
+                textBox1.Text = null;
+                textBox2.Text = null;
+                textBox3.Text = null;
+                textBox1.Focus();
 
-            //li mostro sulla listview
-            
+                //li mostro sulla listview
+
+                //listView1.Clear();
+
+                int a = el.get_contatore();
+                annuncio[] annunci = el.stampa();
+
+                ListViewItem u = new ListViewItem(annunci[a - 1].ID);
+                u.SubItems.Add(annunci[a - 1].Testo);
+                u.SubItems.Add(annunci[a - 1].Data);
+                u.SubItems.Add(Convert.ToString(annunci[a - 1].Costo));
+                listView1.Items.Add(u);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //controllo che siano stati salvati correttamente
-            int a = el.get_contatore();
-            annuncio[] annunci = el.stampa();
 
-            /*
-            for (int i = 0; i < annunci.Length; i++)
-            {
-                ListViewItem riga = new ListViewItem(annunci[i].ToString().Split(';'));
-                listView1.Items.Add(riga);
-            }
-            */
-            textBox4.Text = annunci[0].ID;
+            //controllo cancellato
 
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
