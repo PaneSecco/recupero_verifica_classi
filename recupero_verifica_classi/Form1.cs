@@ -209,11 +209,11 @@ namespace recupero_verifica_classi
             {
                 for (int j = 0; j < annunci.Length - 1; j++)
                 {
-                    if (annunci[i].Costo> annunci[j].Costo)
+                    if (annunci[i].Costo> annunci[i+1].Costo)
                     {
                         temp = annunci[i];
-                        annunci[i] = annunci[j];
-                        annunci[j] = temp;
+                        annunci[i] = annunci[i+1];
+                        annunci[i+1] = temp;
                     }
                 }
             }
